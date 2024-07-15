@@ -3,7 +3,7 @@
 function BodyStyles() {
     document.body.style.margin = '0';
     document.body.style.padding = '0';
-
+document.body.style.overscrollBehaviorX="none"
     document.body.style.boxSizing = 'border-box';
     document.body.style.fontFamily = 'Open Sans, sans-serif';
 }
@@ -102,13 +102,27 @@ function createNav() {
 
 function Section1() {
     const Section1 = document.createElement('section');
+    const container = document.createElement('div');
+    container.style.width="100%"
+    container.style.display="flex"
+    container.style.justifyContent="center"
+    container.style.gap="3rem"
+
+
     Section1.style.background = "linear-gradient(45deg,hsl(215, 73%, 52%),hsl(218, 96%, 18%)";
 
     Section1.style.height = "100vh";
     Section1.style.display = "flex"
-    Section1.style.flexWrap = "wrap"
-    Section1.style.gap = "5rem"
+    Section1.style.flexDirection="column"
+    Section1.style.alignItems="center"
+    Section1.style.gap = "4rem"
     Section1.style.padding = "90px 60px"
+
+
+    const mainImg = document.createElement("img")
+    mainImg.src = "./images/mobile (1).png"
+    mainImg.style.width = "400px"
+    mainImg.style.height = "500px"
 
     let content = document.createElement('div');
     content.style.color = "white"
@@ -117,6 +131,8 @@ function Section1() {
     content.style.display = "flex"
     content.style.flexDirection = "column"
     content.style.padding = " 40px 10px"
+  
+
     const h1 = document.createElement("h1");
     h1.style.fontSize = "50px"
     h1.innerText = "Showcase your app with Small Apps";
@@ -144,9 +160,17 @@ function Section1() {
     button.addEventListener('mouseleave', function () {
         button.style.backgroundColor = "hsl(215, 84%, 56%)";
     });
+    content.appendChild(h1)
+    content.appendChild(p)
+    content.appendChild(button)
+
+
+    container.appendChild(content)
+    container.appendChild(mainImg)
 
     const features = document.createElement("div");
     features.style.display = "flex";
+
     features.style.width = "100%";
     features.style.borderRadius = "10px";
     features.style.marginTop = "5rem"
@@ -183,17 +207,8 @@ function Section1() {
         features.appendChild(feature);
     });
 
-    content.appendChild(h1)
-    content.appendChild(p)
-    content.appendChild(button)
 
-    const mainImg = document.createElement("img")
-    mainImg.src = "./images/mobile (1).png"
-    mainImg.style.width = "400px"
-    mainImg.style.height = "500px"
-
-    Section1.appendChild(content);
-    Section1.appendChild(mainImg);
+    Section1.appendChild(container);
     Section1.appendChild(features);
 
 
@@ -204,6 +219,13 @@ function Section1() {
             Section1.style.height = "100%";
 
             Section1.style.justifyContent = "center"
+            container.style.width="100%"
+            container.style.display="flex"
+            container.style.flexDirection="column"
+            container.style.alignItems="center"
+            container.style.justifyContent="center"
+            container.style.gap="3rem"
+        
             features.style.marginTop = "0px"
             h1.style.fontSize = "50px"
 
